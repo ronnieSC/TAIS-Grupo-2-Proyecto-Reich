@@ -1,0 +1,21 @@
+.form-column {
+    display: flex;
+    margin-top: 2vh;
+    white-space: nowrap;
+    width: 10%; 
+    align-items: center;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%; 
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}

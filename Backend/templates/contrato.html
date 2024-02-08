@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contrato</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
+        margin: 0px;
+        padding: 0px;
+        font-size: 13px;
+      }
+      .info-div {
+        width: 45%;
+      }
+      .info-div > p {
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      .cabecera {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .primary {
+        color: #111;
+        font-weight: bold;
+      }
+      .info-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #999;
+        text-align: center;
+      }
+      th {
+        background-color: #eee;
+        color: #222;
+        border : 1px solid #999;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      td {
+        border : 1px solid #999;
+        font-size: 13px;
+      }
+      h2 {
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+      hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .firma {
+        height : 150px;
+      }
+      .firma-linea {
+        margin: 2px;
+      }
+      .texto-firma{
+        margin: 4px;
+      }
+      .logo {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cabecera">
+      <div>
+        <h1 class="primary">Colegio Reich la Perla</h1>
+        <p><span class="primary">Contrato</span> {{contrato.id}}</p>
+        <p><span class="primary">Fecha:</span> {{fecha_actual}}</p>
+      </div>
+      <img src="{{logo}}" alt="Reich logo" class="logo">
+    </div>
+    <hr>
+    <h2>Informacion del estudiante</h2>
+    <div class="info-container">
+      <div class="info-div">
+        <p><span class="primary">Nombre(s):</span> {{contrato.ConEstId.PerNom1}} {% if contrato.ConEstId.PerNom2 %} {{contrato.ConEstId.PerNom2}} {% endif %}</p>
+        <p><span class="primary">Apellidos:</span> {{contrato.ConEstId.PerApePat}} {{contrato.ConEstId.PerApeMat}} </p>
+        <p><span class="primary">Identificacion:</span> {{contrato.ConEstId.PerTipDocId.TipDocDesCor}} - {{contrato.ConEstId.PerNumDoc}}</p>
+      </div>
+      <div class="info-div">
+        <p><span class="primary">Fecha nacimiento:</span> {{contrato.ConEstId.PerFecNac}}</p>
+        <p><span class="primary">Telefono:</span>   {% if contrato.ConEstId.PerTel %} {{contrato.ConEstId.PerTel}} {% else %} No especificado {% endif %}</p>
+        <p><span class="primary">Ubigeo:</span>     {% if contrato.ConEstId.PerUbi %} {{contrato.ConEstId.PerUbi}} {% else %} No especificado {% endif %}</p>
+      </div>
+    </div>
+    <div>
+      <table width="100%" class="info-table">
+        <thead class="primary">
+          <tr>
+            <th>Grado</th>
+            <th>Nivel</th>
+            <th>Condicion</th>
+            <th>Destreza</th>
+            <th>Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{contrato.ConEstId.GraCod.GraNum}}</td>
+            <td>{{contrato.ConEstId.NivCod.NivNom}}</td>
+            <td>{% if contrato.ConConEst %} {{contrato.ConConEst}} {% else %} No especificado {% endif %}</td>
+            <td>{% if contrato.ConEstId.EstDes %} {{contrato.ConEstId.EstDes}} {% else %} Ninguna {% endif %}</td>
+            <td>{{contrato.ConEstId.UsuCod.UseCod.username}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Informacion del apoderado</h2>
+    <div class="info-container">
+      <div class="info-div">
+        <p><span class="primary">Nombre(s):</span> {{apoderado.PerNom1}} {% if apoderado.PerNom2 %} {{apoderado.PerNom2}} {% endif %}</p>
+        <p><span class="primary">Apellidos:</span> {{apoderado.PerApePat}} {{apoderado.PerApeMat}} </p>
+        <p><span class="primary">Identificacion:</span> {{apoderado.PerTipDocId.TipDocDesCor}} - {{apoderado.PerNumDoc}}</p>
+      </div>
+      <div class="info-div">
+        <p><span class="primary">Fecha nacimiento:</span> {{apoderado.PerFecNac}}</p>
+        <p><span class="primary">Telefono:</span> {% if apoderado.PerTel %} {{apoderado.PerTel}} {% else %} No especificado {% endif %}</p>
+        <p><span class="primary">Ubigeo:</span> {% if apoderado.PerUbi %} {{apoderado.PerUbi}} {% else %} No especificado {% endif %} </p>
+      </div>
+    </div>
+    <div>
+      <table width="100%" class="info-table">
+        <thead class="primary">
+          <tr>
+            <th>Parentesco</th>
+            <th>Centro de trabajo</th>
+            <th>Formacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{parentesco}}</td>
+            <td>{% if apoderado.ApoCenTra %} {{apoderado.ApoCenTra}} {% else %} No especificado {% endif %}</td>
+            <td>{% if apoderado.ApoNivEst %} {{apoderado.ApoNivEst}} {% else %} No especificado {% endif %}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Informacion del contrato</h2>
+    <div class="info-container">
+      <div class="info-div">
+        <p><span class="primary">Año académico: </span> {% if contrato.ConAno %} {{contrato.ConAno}} {% else %} No especificado {% endif %}</p>
+        <p><span class="primary">Responsable: </span> {{contrato.ConResInf.ResNom1}} {{contrato.ConResInf.ResApePat}} {{contrato.ConResInf.ResApeMat}}</p>
+        <p><span class="primary">Firmado:</span> {% if contrato.ConFir %} Sí {% else %} No {% endif %}</p>
+      </div>
+      <div class="info-div">
+        <p><span class="primary">Matricula:</span>S/. {{contrato.ConAcuMat.AcuMonPac}}</p>
+        <p><span class="primary">Pension:</span> S/. {{contrato.ConAcuPen.AcuMonPac}}</p>
+        <p><span class="primary">Guia:</span> S/. {{contrato.ConAcuGui.AcuMonPac}}</p>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <div class="info-container">
+      <div></div>
+      <div>
+        <div class="firma"></div>
+        <hr class="firma-linea">
+        <p class="texto-firma">Firma del responsable</p>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>

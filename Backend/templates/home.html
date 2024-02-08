@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reich API</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #2f2f2f;
+        }
+        .container {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 40vh;
+            border-radius: 5px;
+            box-shadow: #1f1f1f 1px 1px 6px;
+            width: 80vw;
+        }
+        .api-header {
+            text-align: center;
+            background-color: #b02a37;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-radius: 5px 5px 0px 0px;
+            color: white;
+            font-size: 30px;
+        }
+        .anchor{
+            text-align: center;
+            margin: 2px;
+            text-decoration: none;
+            color: white;
+            background-color: gray;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: 0.1s;
+        }
+        .links{
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .urls {
+            display: flex;
+            padding: 10px;
+        }
+        .admin-link {
+            background-color: #b02a37;
+            color: white
+        }
+        .anchor:hover{
+            background-color: #4f4f4f;
+        }
+        .admin-link:hover{
+            background-color: #800000;
+
+        }
+        @media only screen and (min-width: 768px) {
+            .container{
+                width: 40vw;
+            }
+        }
+        .active {
+            font-weight: bold;
+            color: rgb(18, 124, 12);
+        }
+        .inactive {
+            font-weight: bold;
+            color: #b02a37;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="api-header">
+            <h1>Reich API</h1>
+        </div>
+        <div class="links">
+            <div class="urls">
+                <a class="anchor admin-link" href="/admin">Panel de administración</a>
+                <a class="anchor" href="/api-docs">Documentación de la API</a>
+            </div>
+            <div>
+                Modo de desarrollo: 
+                {% if debug %}
+                    <span class="active">Activado</span>
+                {% else %}
+                    <span class="inactive">Desactivado</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

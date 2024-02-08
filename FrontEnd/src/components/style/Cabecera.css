@@ -1,0 +1,18 @@
+/* Header.css */
+.header-container {
+    background-color: #622425; /* Establece el color de fondo negro */
+    color: white; /* Establece el color del texto en blanco para que sea legible */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+.colegio{
+    height: 30%;
+    font-weight: bold;  
+}
+
+.link-style {
+  text-decoration: none;
+  color: #ffffff;
+}

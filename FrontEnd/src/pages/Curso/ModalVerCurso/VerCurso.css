@@ -1,0 +1,19 @@
+.inputRow2 {
+    height: 20px;
+
+}
+label[for="codigoCurso"] {
+    font-weight: bold;
+}
+
+label[for="codigo"] {
+    padding: 20px;
+}
+
+label[for="nombreCurso"] {
+    font-weight: bold;
+}
+
+label[for="nombre"] {
+    padding: 20px;
+}

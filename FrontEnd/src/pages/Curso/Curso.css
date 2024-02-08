@@ -1,0 +1,142 @@
+.cursoTitulo {
+    text-align: left;
+    padding-top: 0%;
+    padding-left: 0%;
+    font-size: 23px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.Formulario{
+    margin-top: 5vh;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+/* Estilo para colocar el label y el input en la misma línea */
+.inputRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.inputRow Label {
+    flex: auto; /* Ancho fijo para el label (ajústalo según tus necesidades) */
+    margin-right: 10px; /* Espacio entre el label y el input */
+    font-size: 15px; 
+    text-align: left;
+}
+
+.inputRow Input{
+    height: 30px;
+    font-size: 15px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%; 
+}
+
+.form-column0 {
+    display: flex;
+    margin-top: 2vh;
+    white-space: nowrap;
+    width: 100%; 
+    align-items: center;
+}
+
+.form-column0 Label {
+    margin-right: 20px; /* Espacio entre el label y el input */
+    font-size: 15px; 
+}
+
+.form-column0 Input {
+    height: 30px;
+    margin-right: 20px; /* Espacio entre el label y el input */
+    font-size: 15px; 
+}
+
+.form-column1 {
+    display: flex;
+    margin-top: 2vh;
+    white-space: nowrap;
+    width: 100%; 
+    align-items: center;
+}
+
+.form-column1 Label {
+    margin-left: 20px; 
+    margin-right: 20px; /* Espacio entre el label y el input */
+    font-size: 15px; 
+}
+
+.form-column1 Input {
+    font-size: 15px; 
+    margin-right: 20px; /* Espacio entre el label y el input */
+    height: 30px;
+}
+
+.options {
+    font-size: 14px; /* Ajusta el tamaño de la letra de los options según tus preferencias */
+  }
+
+
+  .Tabla{
+    margin-top: 5vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 15px;
+}
+
+td {
+    vertical-align: middle; /* Centra verticalmente el contenido dentro de los <td> */
+}
+
+.BotonNuevoCurso {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+
+.BotonNuevoCurso Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    /* Otros estilos adicionales que desees */
+}
+
+
+.Boton Button{
+    background-color: #1c911c; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    /* Otros estilos adicionales que desees */
+    font-size: 12px;
+}
+
+/* Forzar el ajuste del contenido al abrir los modales */
+body.modal-open {
+    overflow: auto;
+  }
+
+.paginacion {
+    margin-top: 5vh;
+}
+  
+  
+  
+  
+  
+  
+  

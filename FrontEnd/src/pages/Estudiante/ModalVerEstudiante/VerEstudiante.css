@@ -1,0 +1,82 @@
+/*COMENZAMOS AQUI*/
+
+.modal-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0; /* Color de fondo deseado */
+    color: #000000; /* Color del texto en el encabezado */
+    border-bottom: 1px solid #cccccc; /* Borde inferior opcional */
+}
+
+.custom-tab-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+
+.tabpanel{
+    padding-bottom: 5px;
+    padding-top: 15px;
+
+
+}
+.formContainer{
+    justify-content: space-between;
+}
+
+
+/* Estilo para cada pestaña */
+.custom-tab {
+    padding: 2px 12px;
+    cursor: pointer;
+    border: 1px solid #a8a8a8;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    background-color: #a8a8a8;
+}
+
+  /* Estilo para la pestaña activa */
+  .custom-tab--selected {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #4098d8;
+    border-bottom: 3px solid #4098d8;
+}
+
+.inputRow Label {
+    margin-right: 20px; /* Opcional, agrega espacio entre el label y el input */
+    white-space: nowrap;
+}
+
+
+
+
+.labelRow {
+    display: flex;
+    justify-content: center;
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+  }
+  
+.label {
+    margin-right: 10px; /* Ajusta el valor según el espacio horizontal que desees */}
+
+.label-with-margin {
+    margin-top: 2%; /* Ajusta el valor según el espacio vertical que desees */
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+
+.modal-footer{
+    width: 100%;
+}
+
+    

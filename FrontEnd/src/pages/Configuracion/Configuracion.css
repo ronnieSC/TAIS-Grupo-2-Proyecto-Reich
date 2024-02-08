@@ -1,0 +1,267 @@
+.configuracionTitulo {
+  text-align: left;
+  padding-top: 0%;
+  padding-left: 0%;
+  font-size: 23px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.Titulo{
+  margin-top: 5vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+/*               BOTON PARA NUEVO GRADO                   */
+.BotonNuevoGrado {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-color: #5c636a;
+  }
+
+
+.BotonNuevoGrado Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+    /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoGrado Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .BotonNuevoGrado Button:active {
+    background-color: #5c636a; /* Cambia a color #5c636a al hacer clic */
+    color: #ffffff; /* Texto en blanco */
+}
+
+.BotonNuevoAnioAcademico {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-color: #5c636a;
+  }
+
+/*               BOTON PARA NUEVO AÑO ACADEMICO                   */
+.BotonNuevoAnioAcademico Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+    /* Otros estilos adicionales que desees */
+}
+.BotonNuevoAnioAcademico  Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .BotonNuevoAnioAcademico Button:active {
+    background-color: #622425; /* Vuelve al color original cuando se hace clic */
+  }
+
+/*               BOTON PARA NUEVO ENCARGADO                   */
+.BotonNuevoEncargado {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+
+.BotonNuevoEncargado Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+    /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoEncargado  Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .BotonNuevoEncargado Button:active {
+    background-color: #622425; /* Vuelve al color original cuando se hace clic */
+  }
+
+/*               BOTON PARA NUEVO PRECIO                   */
+.BotonNuevoPrecio{
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+
+.BotonNuevoPrecio Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+    /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoPrecio Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .BotonNuevoPrecio Button:active {
+    background-color: #622425; /* Vuelve al color original cuando se hace clic */
+  }
+/*               BOTON PARA NUEVO NIVEL                   */
+  .BotonNuevoNivel {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-color: #5c636a;
+  }
+
+
+.BotonNuevoNivel Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+    /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoNivel Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .BotonNuevoNivel Button:active {
+    background-color: #5c636a; /* Cambia a color #5c636a al hacer clic */
+    color: #ffffff; /* Texto en blanco */
+}
+
+/*               BOTON PARA NUEVO TIPO DOCUMENTO                   */
+
+.BotonNuevoTipoDocumento {
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+  align-items: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-color: #5c636a;
+}
+
+
+.BotonNuevoTipoDocumento Button { 
+  background-color: #622425; /* Color rojo */
+  color: #ffffff; /* Texto en blanco */
+  border-color: #5c636a;
+  /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoTipoDocumento Button:hover {
+  background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+  color: #ffffff; /* Texto en blanco */
+  border-color: transparent;
+}
+
+.BotonNuevoTipoDocumento Button:active {
+  background-color: #5c636a; /* Cambia a color #5c636a al hacer clic */
+  color: #ffffff; /* Texto en blanco */
+}
+
+/*               BOTON PARA NUEVA ACTIVIDAD                   */
+.BotonNuevaActividad {
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+  align-items: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-color: #5c636a;
+}
+
+
+.BotonNuevaActividad Button { 
+  background-color: #622425; /* Color rojo */
+  color: #ffffff; /* Texto en blanco */
+  border-color: #5c636a;
+  /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevaActividad Button:hover {
+  background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+  color: #ffffff; /* Texto en blanco */
+  border-color: transparent;
+}
+
+.BotonNuevaActividad Button:active {
+  background-color: #5c636a; /* Cambia a color #5c636a al hacer clic */
+  color: #ffffff; /* Texto en blanco */
+}
+
+/*               BOTON PARA NUEVO DOCUMENTO CONTRATO                   */
+
+.BotonNuevoDocumentoContrato {
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+  align-items: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-color: #5c636a;
+}
+
+
+.BotonNuevoDocumentoContrato Button { 
+  background-color: #622425; /* Color rojo */
+  color: #ffffff; /* Texto en blanco */
+  border-color: #5c636a;
+  /* Otros estilos adicionales que desees */
+}
+
+.BotonNuevoDocumentoContrato Button:hover {
+  background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+  color: #ffffff; /* Texto en blanco */
+  border-color: transparent;
+}
+
+.BotonNuevoDocumentoContrato Button:active {
+  background-color: #5c636a; /* Cambia a color #5c636a al hacer clic */
+  color: #ffffff; /* Texto en blanco */
+}
+
+
+
+/*               BOTONES ADICIONALES                  */
+
+.BotonEliminar Button{
+    background-color: #1c911c; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+}
+
+.Boton Button{
+    background-color: #1c911c; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    /* Otros estilos adicionales que desees */
+    font-size: 12px;
+    border-color: #5c636a;
+}
+.Boton Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+  
+  .Boton Button:active {
+    background-color: #622425; /* Vuelve al color original cuando se hace clic */
+  }
+
+

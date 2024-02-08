@@ -1,0 +1,19 @@
+.BotonCancelar button{
+    border-color: #5c636a;
+}
+.BotonCancelar Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }
+
+.BotonGuardar button{
+    background-color: #27bf2a; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    border-color: #5c636a;
+}
+.BotonGuardar Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+  }

@@ -1,0 +1,31 @@
+
+
+
+.BotonEliminar button{
+    background-color: #dd2b24;
+    color: #ffffff; 
+    border-color: #5c636a;
+}
+.BotonEliminar Button:hover {
+    background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+    color: #ffffff; /* Texto en blanco */
+    border-color: transparent;
+}
+
+.BotonCancel button{
+    background-color: #6d757d;
+
+    border-color: #6d757d;
+}
+
+
+.BotonCancel button:hover {
+  background-color: #5c636a; /* Cambia a color gris al pasar el ratón */
+  color: #ffffff; /* Texto en blanco */
+  border-color: transparent;
+}
+
+.BotonCancel button:active {
+  background-color: #5c636a; /* Cambia a color gris al hacer clic */
+  color: #ffffff; /* Texto en blanco */
+}

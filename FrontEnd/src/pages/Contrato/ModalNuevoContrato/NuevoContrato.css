@@ -1,0 +1,315 @@
+
+.pickers{
+  width: 100%;
+}
+
+.modal-header {
+  width: 100%;
+}
+
+.modal-header-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0; /* Color de fondo deseado */
+  color: #000000; /* Color del texto en el encabezado */
+  border-bottom: 1px solid #cccccc; /* Borde inferior opcional */
+}
+
+.custom-tab-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+/* Estilo para cada pestaña */
+.custom-tab {
+  padding: 2px 12px;
+  cursor: pointer;
+  border: 1px solid #a8a8a8;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #a8a8a8;
+}
+
+/* Estilo para la pestaña activa */
+.custom-tab--selected {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #4098d8;
+  border-bottom: 3px solid #4098d8;
+}
+
+.tabpanel {
+  padding: 4vh 2vh;
+  padding-bottom: 1vh;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+}
+
+#documento {
+  margin-left: 15px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.inputRow1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 60%; /* Ajusta el ancho del Input según tus necesidades */
+  white-space: nowrap;
+  /* Otros estilos adicionales que desees aplicar al Input */
+}
+
+.inputRow1 Input {
+  margin-left: 45px;
+  margin-right: 20px; /* Opcional, agrega espacio entre el label y el input */
+  white-space: nowrap;
+  /* Otros estilos adicionales que desees aplicar al Input */
+}
+
+.inputRow2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Opcional, agrega margen entre las filas de input y label */
+}
+
+.inputRow2 Input {
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
+.inputRow2 Label {
+  white-space: nowrap;
+}
+
+.inputRow3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Opcional, agrega margen entre las filas de input y label */
+}
+
+.inputRow3 Input text {
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
+#distrito {
+  margin-left: 15px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.inputRow3 Label {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.inputRow4 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Opcional, agrega margen entre las filas de input y label */
+}
+
+.inputRow4 Input {
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
+.inputRow4 Label {
+  white-space: nowrap;
+}
+
+.icon {
+  margin-left: 60%; /* Ajusta el espacio entre el Input y el ícono según tus necesidades */
+  /* Otros estilos adicionales que desees aplicar al ícono */
+}
+
+.centeredRow {
+  display: flex;
+  justify-content: center;
+}
+
+.centeredRowContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para los radio options */
+.radioOptions {
+  display: flex;
+  align-items: center;
+}
+
+.radioOptions label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Ajusta el margen según sea necesario */
+}
+
+.radioOptions input[type="radio"] {
+  width: auto; /* Ajusta el ancho según sea necesario */
+  height: auto; /* Ajusta la altura según sea necesario */
+  margin: 20px; /* Elimina el margen para evitar problemas de posicionamiento */
+  transform: scale(3); /* Ajusta la escala para hacer el círculo más grande */
+}
+
+.radioOptions label::before {
+  border-radius: 50%; /* Hace que el círculo sea redondo */
+  width: 15px; /* Ajusta el tamaño del círculo */
+  height: 15px; /* Ajusta el tamaño del círculo */
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.inputRow Label {
+  margin-right: 20px; /* Opcional, agrega espacio entre el label y el input */
+  white-space: nowrap;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.BotonGuardar Button {
+  background-color: #27bf2a; /* Color rojo */
+  color: #ffffff; /* Texto en blanco */
+  /* Otros estilos adicionales que desees */
+}
+
+.BotonCancelar Button {
+  background-color: #db2b24; /* Color rojo */
+  color: #ffffff; /* Texto en blanco */
+  /* Otros estilos adicionales que desees */
+}
+
+.BotonRegresar Button {
+  background-color: #376ece;
+  color: #ffffff;
+}
+
+.modal-footer {
+  width: 100%;
+}
+
+.labelCheckbox {
+  padding-left: 15px;
+}
+
+.matricula-table {
+  text-align: center;
+}
+
+/* Estilos para la cabecera de la tabla */
+.table-header {
+  background-color: #666; /* Color plomo oscuro */
+}
+
+.table-header-cell {
+  color: white; /* Texto blanco en la cabecera */
+}
+
+/* Estilos para filas pares e impares */
+.even-row {
+  background-color: #f0f0f0; /* Color plomo más claro para filas pares */
+}
+
+.odd-row {
+  background-color: #e0e0e0; /* Color plomo aún más claro para filas impares */
+}
+
+/* Estilos para celdas claras y oscuras */
+.light-cell {
+  background-color: #e0e0e0; /* Color plomo claro para celdas */
+}
+
+.dark-cell {
+  background-color: #f0f0f0; /* Color plomo más claro para celdas */
+}
+
+.label-with-margin {
+  margin-top: 2%; /* Ajusta el valor según el espacio vertical que desees */
+}
+
+.matricula_aniosPasados {
+  font-weight: bold; /* Ajustar en letra negrita los precios y años de las matriculas anteriores*/
+}
+.guias_aniosPasados {
+  font-weight: bold; /* Ajustar en letra negrita los precios y años de las matriculas anteriores*/
+}
+
+.right-aligned-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.divider {
+  border: none;
+  border-top: 3px solid #666;
+  width: 70%;
+  margin-left: auto; /* Ajustar para que el divider esté apegado a la derecha */
+  margin-top: 0px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  margin-right: 5px;
+}
+
+/* Agrega estilos para el contenedor en línea */
+.inline-content {
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  margin-left: 20px;
+}
+
+.form-column2 {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  width: 100%;
+  margin-left: 10%;
+}
+
+/* Estilos para el label en línea */
+.label-inline {
+  display: inline-block;
+  width: 150px; /* Ajusta el ancho según sea necesario para alinear los elementos */
+  margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+}
+
+/* Estilos para el input en línea */
+.input-inline {
+  display: inline-block;
+}
