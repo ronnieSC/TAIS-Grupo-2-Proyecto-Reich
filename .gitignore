@@ -2,6 +2,5 @@
 *.webp
 *.pyc
 .idea
-.env
 db.sqlite3
 Backend/*/migrations/0*
