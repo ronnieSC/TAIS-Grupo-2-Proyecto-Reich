@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(m=x)!m=q*c@g(1b6ft8c2-@p-c_1k%c+f4@4vf%8&6#qzafvl
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
-USE_DOCKER = False
+USE_DOCKER = True
 
 ALLOWED_HOSTS = ['colegio-reich.com', 'api.colegio-reich.com', 'localhost', '13.59.26.2', '0.0.0.0', '127.0.0.1']
 
