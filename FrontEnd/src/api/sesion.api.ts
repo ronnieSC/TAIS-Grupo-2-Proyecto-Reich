@@ -1,7 +1,8 @@
 import axios from "axios";
 import credencialesApi, { Token } from "./credenciales.api";
 
-export const BASEURL = "https://api.colegio-reich.com";
+export const BASEURL = "http://localhost:8000";
+// export const BASEURL = "https://api.colegio-reich.com";
 
 export const obtener_tokens = () => {
   const tokenJSON = window.localStorage.getItem("tokens");

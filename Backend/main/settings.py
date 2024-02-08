@@ -126,7 +126,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 from dotenv import load_dotenv
 import os
 try:
-    dot_env_loaded = load_dotenv()
+    dot_env_loaded = load_dotenv(os.path.join(BASE_DIR, '../.env'))
 except Exception as e:
     print(e)
     print("Error al cargar el archivo .env")

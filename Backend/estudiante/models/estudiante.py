@@ -12,7 +12,7 @@ class Estudiante(Persona):
     GraCod      = models.ForeignKey(Grado, on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="grado")
     EstImg      = models.ImageField(upload_to='pics/estudiantes', null=True, blank=True, default='pics/imagen_no_disponible.png', verbose_name='foto')
     EstAli      = models.CharField(max_length=30, null = True, blank=True, verbose_name="alias (nombre de preferencia)")
-    EstColPro   = models.CharField(max_length=30, null=True, blank=True, verbose_name="colegio de procedencia")
+    EstColPro   = models.CharField(max_length=64, null=True, blank=True, verbose_name="colegio de procedencia")
     EstDes      = models.CharField(max_length=100, null=True, blank=True, verbose_name="destreza")
     EstCon      = models.CharField(max_length=100, null=True, blank=True, verbose_name="condicion")
     UsuCod      = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Codigo de usuario")
