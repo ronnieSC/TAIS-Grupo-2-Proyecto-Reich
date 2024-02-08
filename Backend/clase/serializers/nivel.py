@@ -1,8 +1,11 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from clase.models.nivel import Nivel
 
 class NivelSerializer(serializers.ModelSerializer):
-    nivel = serializers.CharField(source="NivNom")
+    nivel = serializers.CharField(source="NivNom", validators=[
+        UniqueValidator(queryset=Nivel.objects.all(), message="El nivel ya existe")
+    ])
     class Meta:
         model = Nivel
         fields = ['nivel'] 

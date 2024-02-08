@@ -1,9 +1,11 @@
 
-from rest_framework import serializers
+from rest_framework import serializers, validators
 from docente.models.actividad import Actividad
 
 class ActividadSerializer(serializers.ModelSerializer):
-    actividad = serializers.CharField(source="ActNom")
+    actividad = serializers.CharField(source="ActNom", validators=[
+        validators.UniqueValidator(queryset=Actividad.objects.all(), message="Ya existe una actividad con ese nombre")
+    ])
 
     class Meta:
         model = Actividad

@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-(m=x)!m=q*c@g(1b6ft8c2-@p-c_1k%c+f4@4vf%8&6#qzafvl
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
-USE_DOCKER = True
+USE_DOCKER = False
 
-ALLOWED_HOSTS = ['colegio-reich.com', 'api.colegio-reich.com', 'localhost', '13.59.26.2', '0.0.0.0']
+ALLOWED_HOSTS = ['colegio-reich.com', 'api.colegio-reich.com', 'localhost', '13.59.26.2', '0.0.0.0', '127.0.0.1']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
@@ -126,7 +126,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 from dotenv import load_dotenv
 import os
 try:
-    dot_env_loaded = load_dotenv(os.path.join(BASE_DIR, '../.env'))
+    dot_env_loaded = load_dotenv()
 except Exception as e:
     print(e)
     print("Error al cargar el archivo .env")

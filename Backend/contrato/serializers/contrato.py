@@ -158,13 +158,16 @@ class ContratoSerializer(serializers.ModelSerializer):
                     # actualizacion de parientes actuales
                     for pariente in parientes:
                         # parentesco_data = [(<ParApoId>, <ParPar>), ...]
+                        if len(parentesco_data) == 0:
+                            break
+                        print("\n parienteee \n")
                         pariente_data = parentesco_data.pop(0)
 
                         apoderado_data = pariente_data.pop('ParApoId', None)
                         if not apoderado_data:
                             raise serializers.ValidationError('Error en el apoderado')
-
                         apoderado = pariente.ParApoId
+
                         # Actualizando la relacion (madre, padre, etc)
                         pariente.ParPar = pariente_data.pop('ParPar', pariente.ParPar)
 

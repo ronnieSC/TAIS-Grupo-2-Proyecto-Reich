@@ -1,7 +1,7 @@
 from django.db import models
 
 class Grado(models.Model):
-    GraNum = models.CharField(max_length=32, verbose_name="grado")
+    GraNum = models.CharField(max_length=32, verbose_name="grado", unique=True)
     
     def __str__(self):
         return self.GraNum

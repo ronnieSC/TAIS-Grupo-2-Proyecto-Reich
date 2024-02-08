@@ -14,13 +14,18 @@ class GestorUsuarios():
         return contrasena
 
     def crear_usuario(username, password, rol):
+        existe_usuario = User.objects.filter(username=username).exists() 
+        if existe_usuario:
+            splited_username = username.split('@')
+            username = f'{splited_username[0]}{random.randint(100, 999)}@{splited_username[1]}'
+        # Creando el usuario
         user = User.objects.create_user(
-            username=username,
+            username=username.replace(' ', ''),
             password=password,
             # Permitiendo acceso a /admin si es que se trata solamente de administradores
             is_staff=True if rol==INTERFACE_ROLES.ADMINISTRADOR else False,
         )
-        # Asignando o creando el rol de estudiante
+        # Asignando o creando el rol
         rol_instance, _created = Rol.objects.get_or_create(
             RolNom = rol
         )

@@ -20,10 +20,13 @@ class Estudiante(Persona):
     def __str__(self):
         return f'{self.PerApePat} {self.PerApeMat}, {self.PerNom1} ({self.PerNumDoc})'
 
+    def get_cantidad_estudiantes(NivCod, GraCod):
+        return Estudiante.objects.filter(NivCod=NivCod, GraCod=GraCod).count()
+
     def save(self, *args, **kwargs):
         nombre = self.PerNom1
         paterno = self.PerApePat
-        cantidad_estudiantes= Clase.get_cantidad_estudiantes(self.NivCod, self.GraCod)
+        cantidad_estudiantes= Estudiante.get_cantidad_estudiantes(self.NivCod, self.GraCod)
         orden = f'0{cantidad_estudiantes+1}' if cantidad_estudiantes<9 else cantidad_estudiantes+1
         codigo = f'{self.NivCod.id}{self.GraCod.GraNum}{orden}'
         if not self.UsuCod:

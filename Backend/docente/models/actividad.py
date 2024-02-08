@@ -2,7 +2,7 @@
 from django.db import models
 
 class Actividad(models.Model):
-    ActNom = models.CharField(verbose_name="actividad", max_length=32)
+    ActNom = models.CharField(verbose_name="actividad", max_length=32, unique=True)
 
     class Meta:
         verbose_name = "actividad"

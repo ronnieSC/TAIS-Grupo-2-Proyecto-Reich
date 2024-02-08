@@ -1,9 +1,12 @@
 from rest_framework import serializers
+from rest_framework import validators
 
 from curso.models.curso import Curso
 
 class CursoSerializer(serializers.ModelSerializer):
-    curso = serializers.CharField(source="CurNom")
+    curso = serializers.CharField(source="CurNom", validators=[
+        validators.UniqueValidator(queryset=Curso.objects.all(), message="El curso ya existe")
+    ])
     
     class Meta:
         model = Curso 

@@ -1,7 +1,7 @@
 from django.db import models
 
 class Nivel(models.Model):
-    NivNom = models.CharField(max_length=32, verbose_name="nivel")
+    NivNom = models.CharField(max_length=32, verbose_name="nivel", unique=True)
     
     def __str__(self):
         return self.NivNom

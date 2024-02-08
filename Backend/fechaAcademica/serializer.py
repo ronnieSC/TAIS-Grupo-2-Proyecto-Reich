@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from fechaAcademica.models.semana import Semana
 from fechaAcademica.models.bimestre import Bimestre
 from fechaAcademica.models.ano_academico import AnoAcademico
@@ -19,6 +20,9 @@ class AnoAcademicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnoAcademico
         fields = '__all__'
+        validators = [
+            UniqueValidator(queryset=AnoAcademico.objects.all())
+        ]
 
 class FechaAcademicaSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,8 +1,11 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from clase.models.grado import Grado
 
 class GradoSerializer(serializers.ModelSerializer):
-    grado = serializers.CharField(source="GraNum")
+    grado = serializers.CharField(source="GraNum", validators=[
+        UniqueValidator(queryset=Grado.objects.all(), message="El grado ya existe")
+    ])
     class Meta:
         model = Grado
         fields = ['grado']
@@ -12,4 +15,5 @@ class GradoSerializer(serializers.ModelSerializer):
         representation['grado'] = instance.GraNum
         representation['id'] = instance.pk
         return representation
+    
 
