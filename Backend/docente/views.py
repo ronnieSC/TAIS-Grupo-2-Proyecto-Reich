@@ -27,11 +27,27 @@ class DocenteView(viewsets.ModelViewSet):
     queryset = Docente.objects.all()
     serializer_class = DocenteSerializer
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
+
 class BloqueView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, EsAdministrador|EsDocente|EsEstudiante|EsApoderado]
     authentication_classes = [JWTAuthentication]
     queryset = Bloque.objects.all()
     serializer_class = BloqueSerializer 
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
     
 class ActividadView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, EsAdministrador|EsDocente|EsEstudiante|EsApoderado]
@@ -39,11 +55,27 @@ class ActividadView(viewsets.ModelViewSet):
     queryset = Actividad.objects.all()
     serializer_class = ActividadSerializer 
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
+
 class OpinionView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, EsAdministrador|EsDocente|EsEstudiante|EsApoderado]
     authentication_classes = [JWTAuthentication]
     queryset = Opinion.objects.all()
     serializer_class = OpinionSerializer
+    
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
 
 class HorarioView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, EsAdministrador|EsDocente|EsEstudiante|EsApoderado]
@@ -51,11 +83,27 @@ class HorarioView(viewsets.ModelViewSet):
     queryset = Horario.objects.all()
     serializer_class = HorarioSerializer
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
+
 class TelefonoView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, EsAdministrador|EsDocente|EsEstudiante|EsApoderado]
     authentication_classes = [JWTAuthentication]
     queryset = Telefono.objects.all()
     serializer_class = TelefonoSerializer 
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        try:
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"mensaje": "No se puede eliminar el objeto debido a una restricción de eliminación."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"mensaje": "El objeto se eliminó correctamente."}, status=status.HTTP_204_NO_CONTENT)
 
 # API custom para intercambio de bloques
 from rest_framework.views import APIView
