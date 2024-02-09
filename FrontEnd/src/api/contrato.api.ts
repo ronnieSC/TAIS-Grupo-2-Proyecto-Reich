@@ -1,12 +1,18 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { ContratoGuardado } from "../utilities/ContratoTipos";
-import cabecera  from "./sesion.api";
+import cabecera from "./sesion.api";
 
 const crear_contrato = async (contrato: ContratoGuardado) => {
-  const response = await cabecera!
-    .post("/api/contratos/", contrato)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera("/api/contratos/")
+    .then(async (response) => {
+      return response
+        .post("/", contrato)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
@@ -15,78 +21,170 @@ const crear_contrato = async (contrato: ContratoGuardado) => {
 };
 
 const actualizar_contrato = async (contrato: ContratoGuardado, id: string) => {
-  const response = await cabecera!
-    .patch(`/api/contratos/${id}/`, contrato)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/contratos/${id}/`)
+    .then(async (response) => {
+      return response
+        .patch("/", contrato)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
     });
-    return response
+  return response;
 };
 
 const obtener_contratos = async () => {
-  const { data } = await cabecera!.get("/api/contratos/");
+  const { data } = await cabecera("/api/contratos/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_contrato = async (idContrato: string) => {
-  const { data } = await cabecera!.get(`/api/contratos/${idContrato}/`);
+  const { data } = await cabecera(`/api/contratos/${idContrato}/`)
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const eliminar_contrato = async (idContrato: string) => {
-  const response = await cabecera!
-    .delete(`/api/contratos/${idContrato}/`)
+  const response = await cabecera(`/api/contratos/${idContrato}/`)
     .then((response) => {
-      return response;
+      return response.delete("/");
     })
     .catch((error) => {
-      console.log("api", error);
       throw error;
     });
-    return response
+  return response;
 };
 
 const obtener_tipo_documento = async () => {
-  const { data } = await cabecera!.get("/api/personas/tipodocumentos/");
+  const { data } = await cabecera("/api/personas/tipodocumentos/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_grados = async () => {
-  const { data } = await cabecera!.get("/api/clases/grado/");
+  const { data } = await cabecera("/api/clases/grado/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_niveles = async () => {
-  const { data } = await cabecera!.get("/api/clases/nivel/");
+  const { data } = await cabecera("/api/clases/nivel/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_precios = async () => {
-  const { data } = await cabecera!.get("/api/precios/");
+  const { data } = await cabecera("/api/precios/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_annos_academicos = async () => {
-  const { data } = await cabecera!.get("/api/fechaAcademica/anosAcademicos/");
+  const { data } = await cabecera("/api/fechaAcademica/anosAcademicos/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_razones = async () => {
-  const { data } = await cabecera!.get("/api/precios/razon/");
+  const { data } = await cabecera("/api/precios/razon/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_responsables = async () => {
-  const { data } = await cabecera!.get("/api/responsables/");
+  const { data } = await cabecera("/api/responsables/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_documentos = async () => {
-  const { data } = await cabecera!.get("/api/contratos/documentos/");
+  const { data } = await cabecera("/api/contratos/documentos/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
+};
+
+const obtener_contrato_informe = async (idContrato: any) => {
+  const response = await cabecera(`/api/contratos/reporte/${idContrato}/`)
+    .then((response) => {
+      return response
+        .get("/", {
+          responseType: "blob",
+        })
+        .then((response: AxiosResponse) => {
+          let url = window.URL.createObjectURL(new Blob([response.data]));
+          //const contentDisposition = response.headers['content-disposition'];
+          //const filename = contentDisposition.split('filename=')[1].trim();
+          let link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "contrato.pdf");
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((error) => {
+          return error;
+        });
+    })
+    .catch((error) => {
+      throw error;
+    });
+
+  return response;
 };
 
 const obtener_datos_nuevocontrato = async () => {
@@ -129,4 +227,5 @@ export default {
   obtener_contrato,
   eliminar_contrato,
   obtener_datos_nuevocontrato,
+  obtener_contrato_informe,
 };

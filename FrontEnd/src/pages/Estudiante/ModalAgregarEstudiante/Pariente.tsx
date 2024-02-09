@@ -50,15 +50,30 @@ const Pariente = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)) {
+              const error = actionData.errors[key];
+              toast.error(`Ocurrio algo en el servidor: ${error}`);
+            }
+          }
           return;
         }
         case 400: {
-          toast.error(
-            `No se pudo guardar el pariente: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)) {
+              const error = actionData.errors[key];
+              if (key === "apoderado") {
+                for (const key in actionData.errors.apoderado) {
+                  if (actionData.errors.apoderado.hasOwnProperty(key)) {
+                    const errorApo = actionData.errors.apoderado[key];
+                    toast.error(`No se pudo realizar: ${errorApo}`);
+                  }
+                }
+              } else {
+                toast.error(`No se pudo realizar: ${error}`);
+              }
+            }
+          }
           return;
         }
       }

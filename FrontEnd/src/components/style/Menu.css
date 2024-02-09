@@ -7,14 +7,14 @@
 }
 
 .menu::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Color de fondo anegado con opacidad */
-  z-index: 0; /* Asegura que el pseudo-elemento esté por encima del contenido */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Color de fondo anegado con opacidad */
+    z-index: 0; /* Asegura que el pseudo-elemento esté por encima del contenido */
 }
 
 .list-group-flush .list-group-item {

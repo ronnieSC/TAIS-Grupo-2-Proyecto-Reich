@@ -31,8 +31,6 @@ const Clase = () => {
   const [paginaActual, setPaginaActual] = useState(0);
   const registrosPorPagina = 4; // Número de registros por página
 
-  console.log(actionData)
-
   useEffect(() => {
     if (actionData !== undefined && actionData.ok) {
       switch (actionData.status) {
@@ -55,15 +53,21 @@ const Clase = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`Ocurrio algo en el servidor: ${error}`);
+            }
+          };
           return;
         }
         case 400: {
-          toast.error(
-            `No se pudo guardar el estudiante: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`No se pudo realizar: ${error}`);
+            }
+          };
           return;
         }
       }
@@ -76,19 +80,16 @@ const Clase = () => {
 
   const filtrarDato = () => {
     const filtrarFila = estudiantes.filter((estudiante) => {
-      const textMatch =
-        estudiante?.primer_nombre
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        estudiante?.segundo_nombre
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        estudiante?.apellido_paterno
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        estudiante?.apellido_materno
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase());
+
+      const nombreCompletoEst = estudiante.primer_nombre.concat(
+        estudiante.segundo_nombre ? " " + estudiante.segundo_nombre : "",
+        " " + estudiante.apellido_paterno,
+        " " + estudiante.apellido_materno
+      );
+
+      const textMatch = nombreCompletoEst
+        .toLowerCase()
+        .includes(filtroNombre.toLowerCase());
       const nivelMatch =
         !filtroNivel || estudiante?.nivel_codigo === filtroNivel;
       const gradoMatch =

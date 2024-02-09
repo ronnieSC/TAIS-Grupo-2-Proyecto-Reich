@@ -1,0 +1,5 @@
+.card-hover:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Ajusta los valores según tu preferencia */
+    transition: box-shadow 0.1s ease; /* Agrega una transición suave */
+}
+

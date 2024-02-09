@@ -2,66 +2,114 @@ import { AxiosError, AxiosResponse } from "axios";
 import cabecera from "./sesion.api";
 
 const crear_clase = async (clase: any) => {
-  const response = await cabecera!
-    .post("/api/clases/", clase)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera("/api/clases/")
+    .then(async (response) => {
+      return response
+        .post("/", clase)
+        .then((response) => {
+          return response as AxiosResponse;
+        })
+        .catch((error: AxiosError) => {
+          throw error;
+        });
     })
-    .catch((error: AxiosError) => {
+    .catch((error) => {
       throw error;
     });
-    return response
+  return response;
 };
 
 const actualizar_clase = async (clase: any, id: string) => {
-  const response = await cabecera!
-    .patch(`/api/clases/${id}/`, clase)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/clases/${id}/`)
+    .then(async (response) => {
+      return response
+        .patch("/", clase)
+        .then((response) => {
+          return response as AxiosResponse;
+        })
+        .catch((error: AxiosError) => {
+          throw error;
+        });
     })
-    .catch((error: AxiosError) => {
+    .catch((error) => {
       throw error;
     });
   return response;
 };
 
 const agregar_estudiante = async (estudiante_clase: any) => {
-  const response = await cabecera!
-    .post("/api/clases/estudianteclase/", estudiante_clase)
-    .then((response) => {
-      return response;
+  const response = await cabecera("/api/clases/estudianteclase/")
+    .then(async (response) => {
+      return response
+        .post("/", estudiante_clase)
+        .then((response) => {
+          return response as AxiosResponse;
+        })
+        .catch((error: AxiosError) => {
+          throw error;
+        });
     })
-    .catch((error: AxiosError) => {
+    .catch((error) => {
       throw error;
     });
   return response;
 };
 
 const obtener_tutores = async () => {
-  const { data } = await cabecera!.get("/api/docentes/");
+  const { data } = await cabecera("/api/docentes/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_secciones = async () => {
-  const { data } = await cabecera!.get("/api/clases/seccion");
+  const { data } = await cabecera("/api/clases/seccion")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_clases = async () => {
-  const { data } = await cabecera!.get("/api/clases/");
+  const { data } = await cabecera("/api/clases/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_clase = async (idClase: string) => {
-  const { data } = await cabecera!.get(`/api/clases/${idClase}/`);
+  const { data } = await cabecera(`/api/clases/${idClase}/`)
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const eliminar_clase = async (idClase: string) => {
-  const response = await cabecera!
-    .delete(`/api/clases/${idClase}/`)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/clases/${idClase}/`)
+    .then(async (response) => {
+      return response
+        .delete("/")
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
@@ -70,12 +118,24 @@ const eliminar_clase = async (idClase: string) => {
 };
 
 const obtener_grados = async () => {
-  const { data } = await cabecera!.get("/api/clases/grado/");
+  const { data } = await cabecera("/api/clases/grado/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_niveles = async () => {
-  const { data } = await cabecera!.get("/api/clases/nivel/");
+  const { data } = await cabecera("/api/clases/nivel/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
@@ -88,15 +148,27 @@ const obtener_datos_clase = async () => {
 };
 
 const obtener_estudiante_clase = async () => {
-  const { data } = await cabecera!.get("/api/clases/estudianteclase/");
+  const { data } = await cabecera("/api/clases/estudianteclase/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const eliminar_estudiante_clase = async (idClase: any) => {
-  const response = await cabecera!
-    .delete(`/api/clases/estudianteclase/${idClase}/`)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/clases/estudianteclase/${idClase}/`)
+    .then(async (response) => {
+      return response
+        .delete("/")
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
@@ -112,6 +184,7 @@ const informacion_relevante = async () => {
 };
 
 export default {
+  obtener_niveles,
   informacion_relevante,
   actualizar_clase,
   agregar_estudiante,

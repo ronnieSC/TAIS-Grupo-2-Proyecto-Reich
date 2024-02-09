@@ -1,0 +1,7 @@
+version: '1'
+services:
+  reich:
+    build: .
+    ports:
+    - 8000:5173
+    restart: always

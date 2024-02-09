@@ -1,0 +1,42 @@
+
+.cells{
+    background-color: #721a1a67;
+}
+
+.botonCrear Button{
+    background-color: #622425; /* Color rojo */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.botonCrear1 Button{
+    width: 10rem;
+    height: 5rem;
+    background-color: rgba(98, 36, 37, 0.75);
+    border-color: rgba(98, 36, 37, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BotonCrear Button{
+    background-color: rgb(18, 152, 18);
+}
+
+.tdWithBorder {
+    border: 2px solid rgb(120, 34, 34);
+    padding: 7px 0px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.botonEditarBloque{
+    top: 0;
+    right: 0;
+    position: absolute;
+    right: 75%;
+    width: 25%;
+}

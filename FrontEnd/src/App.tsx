@@ -5,7 +5,7 @@ import { PublicRutas } from "./routers/PublicRutas";
 import { useEffect, useState } from "react";
 import { DocenteRutas } from "./routers/DocenteRutas";
 import { registerLocale } from "react-datepicker";
-import es from "date-fns/locale/es";
+import { es } from "date-fns/locale/es";
 import { obtener_tokens } from "./api/sesion.api";
 registerLocale("es", es);
 
@@ -15,8 +15,14 @@ function App() {
 
   useEffect(() => {
     const obtener_datos = async () => {
-      const user = await credencialesApi.obtener_datos();
-      setRol(user.usuario.rol.nombre);
+      await credencialesApi
+        .obtener_datos()
+        .then((response) => {
+          setRol(response.usuario.rol.nombre);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
     if (user_tokens === null) {

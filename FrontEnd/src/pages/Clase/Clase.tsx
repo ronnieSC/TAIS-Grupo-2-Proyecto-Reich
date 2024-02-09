@@ -7,7 +7,12 @@ import { Button } from "reactstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { TiUserAddOutline } from "react-icons/ti";
 import PagContrato from "../../components/Contrato/Pag_Contrato";
-import { Outlet, useActionData, useLoaderData, useNavigate } from "react-router-dom";
+import {
+  Outlet,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { InformacionClase } from "../../utilities/ClaseTipos";
 import { Errors } from "../../utilities/utils";
 import toast from "react-hot-toast";
@@ -15,7 +20,7 @@ import toast from "react-hot-toast";
 const Clase = () => {
   const { clases, informacion } = useLoaderData() as InformacionClase;
   const navigate = useNavigate();
-  const actionData = useActionData() as Errors
+  const actionData = useActionData() as Errors;
 
   const [datosFiltrados, setDatosFiltrados] = useState(clases);
   const [filtroNroClase, setFiltroNroClase] = useState("");
@@ -44,15 +49,21 @@ const Clase = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)) {
+              const error = actionData.errors[key];
+              toast.error(`Ocurrio algo en el servidor: ${error}`);
+            }
+          }
           return;
         }
         case 400: {
-          toast.error(
-            `No se pudo guardar el curso: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)) {
+              const error = actionData.errors[key];
+              toast.error(`No se pudo realizar: ${error}`);
+            }
+          }
           return;
         }
       }

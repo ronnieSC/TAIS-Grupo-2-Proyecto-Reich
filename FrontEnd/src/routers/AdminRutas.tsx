@@ -1,6 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import credencialesApi from "../api/credenciales.api";
-import cabecera from "../api/sesion.api";
 import { AdminLayout } from "./Layouts/AdminLayout";
 import contratoApi from "../api/contrato.api";
 import claseApi from "../api/clase.api";
@@ -83,6 +82,13 @@ import {
   DocumentoContratoGuardado,
 } from "../utilities/ConfigracionTipos";
 import ErrorPagina from "../pages/Error/ErrorPagina";
+import Horario from "../pages/Horario/Horario";
+import NuevoHorario from "../pages/Horario/ModalNuevoHorario/NuevoHorario";
+import VerHorario from "../pages/Horario/VerHorario/VerHorario";
+import horarioApi from "../api/horario.api";
+import EliminarHorario from "../pages/Horario/EliminarHorario/EliminarHorario";
+import ConfigurarHorario from "../pages/Horario/VerHorario/ConfigurarHorario/ConfigurarHorario";
+import EliminarBloque from "../pages/Horario/VerHorario/EliminarBloque/EliminarBloque";
 
 const router = createBrowserRouter([
   {
@@ -124,7 +130,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -153,7 +159,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -177,7 +183,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -262,10 +268,11 @@ const router = createBrowserRouter([
                   })
                   .catch((error: AxiosError) => {
                     if (error.response) {
+                      console.log(error.response)
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -291,7 +298,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -316,10 +323,11 @@ const router = createBrowserRouter([
                   })
                   .catch((error: AxiosError) => {
                     if (error.response) {
+                      console.log(error.response)
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -345,7 +353,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -373,7 +381,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -401,7 +409,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -429,7 +437,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -457,7 +465,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -495,7 +503,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -524,7 +532,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -555,7 +563,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -588,7 +596,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -624,7 +632,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -647,7 +655,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -670,7 +678,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -693,7 +701,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -716,7 +724,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -739,7 +747,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -762,7 +770,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -786,7 +794,7 @@ const router = createBrowserRouter([
                       return {
                         ok: false,
                         status: error.response.status,
-                        message: error.response.data,
+                        errors: error.response.data,
                       };
                     }
                     return { ok: false };
@@ -952,7 +960,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -979,7 +987,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1004,7 +1012,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1054,7 +1062,7 @@ const router = createBrowserRouter([
                       estudiante_codigo: id,
                       semana_codigo: 1,
                     };
-                    await claseApi
+                    const response = await claseApi
                       .agregar_estudiante(tmp)
                       .then((response: AxiosResponse | void) => {
                         if (response && response.status === 201) {
@@ -1067,11 +1075,12 @@ const router = createBrowserRouter([
                           return {
                             ok: false,
                             status: error.response.status,
-                            message: error.response.data,
+                            errors: error.response.data,
                           };
                         }
                         return { ok: false };
                       });
+                      return response
                   });
 
                   return { ok: false };
@@ -1096,7 +1105,7 @@ const router = createBrowserRouter([
                           return {
                             ok: false,
                             status: error.response.status,
-                            message: error.response.data,
+                            errors: error.response.data,
                           };
                         }
                         return { ok: false };
@@ -1147,7 +1156,12 @@ const router = createBrowserRouter([
                 })
                 .catch((error: AxiosError) => {
                   if (error.response) {
-                    return { ok: false, errors: error.response.data };
+                    console.log(error.response)
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data,
+                    };
                   }
                   return { ok: false };
                 });
@@ -1171,7 +1185,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1208,7 +1222,7 @@ const router = createBrowserRouter([
                         return {
                           ok: false,
                           status: error.response.status,
-                          message: error.response.data,
+                          errors: error.response.data,
                         };
                       }
                       return { ok: false };
@@ -1222,6 +1236,8 @@ const router = createBrowserRouter([
                   const pariente = JSON.parse(values) as ParienteEntidad;
                   const parienteId = formData.get("parienteId") as string;
 
+                  console.log(pariente, parienteId)
+
                   const response = await parienteApi
                     .actualizar_pariente(pariente, parienteId)
                     .then((response: AxiosResponse | void) => {
@@ -1232,10 +1248,11 @@ const router = createBrowserRouter([
                     })
                     .catch((error: AxiosError) => {
                       if (error.response) {
+                        console.log(error.response)
                         return {
                           ok: false,
                           status: error.response.status,
-                          message: error.response.data,
+                          errors: error.response.data,
                         };
                       }
                       return { ok: false };
@@ -1259,7 +1276,7 @@ const router = createBrowserRouter([
                         return {
                           ok: false,
                           status: error.response.status,
-                          message: error.response.data,
+                          errors: error.response.data,
                         };
                       }
                       return { ok: false };
@@ -1277,7 +1294,6 @@ const router = createBrowserRouter([
               },
               {
                 path: "editar/:parienteId",
-                //loader: ( {params} ) => estudianteApi.obtener_estudiante(params.estudianteId!),
                 element: <EditarPariente />,
               },
               {
@@ -1311,10 +1327,7 @@ const router = createBrowserRouter([
       {
         path: "curso",
         id: "cursoRaiz",
-        loader: async () => {
-          const { data } = await cabecera!.get("/api/cursos/");
-          return data;
-        },
+        loader: async () => cursoApi.obtener_cursos(),
         action: async ({ request }) => {
           switch (request.method) {
             case "POST": {
@@ -1335,7 +1348,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1361,7 +1374,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1385,7 +1398,7 @@ const router = createBrowserRouter([
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1447,10 +1460,11 @@ const router = createBrowserRouter([
                 })
                 .catch((error: AxiosError) => {
                   if (error.response) {
+                    console.log(error.response);
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1476,10 +1490,11 @@ const router = createBrowserRouter([
                 })
                 .catch((error: AxiosError) => {
                   if (error.response) {
+                    console.log(error.response)
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1501,10 +1516,11 @@ const router = createBrowserRouter([
                 })
                 .catch((error: AxiosError) => {
                   if (error.response) {
+                    console.log(error.response)
                     return {
                       ok: false,
                       status: error.response.status,
-                      message: error.response.data,
+                      errors: error.response.data,
                     };
                   }
                   return { ok: false };
@@ -1537,6 +1553,197 @@ const router = createBrowserRouter([
             loader: ({ params }) =>
               docenteApi.obtener_docente(params.docenteId!),
             element: <EliminarDocente />,
+          },
+        ],
+      },
+
+      /*
+       * Rutas - Gestión Horarios
+       */
+
+      {
+        path: "horarios",
+        id: "horarioRaiz",
+        loader: () => horarioApi.obtener_horarios(),
+        action: async ({ request }) => {
+          switch (request.method) {
+            case "POST": {
+              const formData = await request.formData();
+              const values = formData.get("values") as string;
+              const horario = JSON.parse(values);
+
+              const response = await horarioApi
+                .crear_horario(horario)
+                .then((response: AxiosResponse | void) => {
+                  if (response && response.status === 201) {
+                    return { ok: true, status: response.status };
+                  }
+                  return { ok: true };
+                })
+                .catch((error: AxiosError) => {
+                  console.log(error.response);
+                  if (error.response) {
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data as string,
+                    };
+                  }
+                  return { ok: false };
+                });
+              return response;
+            }
+
+            case "DELETE": {
+              const formData = await request.formData();
+              const horarioId = formData.get("horarioId") as string;
+
+              const response = await horarioApi
+                .eliminar_horario(horarioId)
+                .then((response) => {
+                  if (response && response.status == 204) {
+                    return { ok: true, status: response.status };
+                  }
+                  return { ok: true };
+                })
+                .catch((error: AxiosError) => {
+                  console.log(error.response);
+                  if (error.response) {
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data as string,
+                    };
+                  }
+                  return { ok: false };
+                });
+              return response;
+            }
+          }
+        },
+        element: <Horario />,
+        children: [
+          {
+            path: "crear",
+            element: <NuevoHorario />,
+          },
+          {
+            path: "eliminar/:horarioId",
+            element: <EliminarHorario />,
+          },
+        ],
+      },
+
+      {
+        path: "horarios/ver/:id",
+        id: "VerHorarios",
+        element: <VerHorario />,
+        loader: async ({ params }) => {
+          const BloqueApi = await horarioApi.obtener_bloques();
+          const DocenteApi = await docenteApi.obtener_docentes();
+          const cursoDataApi = await cursoApi.obtener_cursos();
+          const ActividadDataApi = await horarioApi.actividad_bloque();
+          const Horario = await horarioApi.obtener_horario(params.id);
+          return {
+            Horario,
+            BloqueApi,
+            DocenteApi,
+            cursoDataApi,
+            ActividadDataApi,
+          };
+        },
+        action: async ({ request }) => {
+          switch (request.method) {
+            case "POST": {
+              const formData = await request.formData();
+              const values = formData.get("values") as string;
+              const bloque = JSON.parse(values);
+
+              console.log("Bloque", bloque);
+
+              const response = await horarioApi
+                .crear_bloque(bloque)
+                .then((response: AxiosResponse | void) => {
+                  if (response && response.status === 201) {
+                    return { ok: true, status: response.status };
+                  }
+                  return { ok: true };
+                })
+                .catch((error: AxiosError) => {
+                  if (error.response) {
+                    console.log(error);
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data,
+                    };
+                  }
+                  return { ok: false };
+                });
+              return response;
+            }
+            case "PATCH": {
+              const formData = await request.formData();
+              const values = formData.get("values") as string;
+              const bloque = JSON.parse(values);
+              const idBloque = formData.get("idBloque");
+
+              const response = await horarioApi
+                .actualizar_bloque(bloque, idBloque)
+                .then((response: AxiosResponse | void) => {
+                  if (response && response.status === 200) {
+                    return { ok: true, status: response.status };
+                  }
+                  return { ok: true };
+                })
+                .catch((error: AxiosError) => {
+                  if (error.response) {
+                    console.log(error);
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data,
+                    };
+                  }
+                  return { ok: false };
+                });
+              return response;
+            }
+            case "DELETE": {
+              const formData = await request.formData();
+              const idBloque = formData.get("idBloque") as string;
+
+              const response = await horarioApi
+                .eliminar_bloque(idBloque)
+                .then((response: AxiosResponse | void) => {
+                  if (response && response.status == 204) {
+                    return { ok: true, status: response.status };
+                  }
+                  return { ok: true };
+                })
+                .catch((error: AxiosError) => {
+                  if (error.response) {
+                    return {
+                      ok: false,
+                      status: error.response.status,
+                      errors: error.response.data,
+                    };
+                  }
+                  return { ok: false };
+                });
+
+              return response;
+            }
+          }
+        },
+        children: [
+          {
+            path: "bloque/eliminar",
+            element: <EliminarBloque />,
+          },
+          {
+            path: "bloque/:tipo",
+            element: <ConfigurarHorario />,
           },
         ],
       },

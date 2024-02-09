@@ -19,8 +19,7 @@ const VerContrato = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const contrato = useLoaderData() as ContratoEntidad;
-  const { informacion } = useRouteLoaderData(
-    "contratoRaiz"
+  const { informacion } = useRouteLoaderData( "contratoRaiz"
   ) as InformacionContrato;
   const [imagenSeleccionada] = useState<string>(contrato?.estudiante?.foto!);
 
@@ -200,7 +199,7 @@ const VerContrato = () => {
 
                       <Form.Label column id="_conEstFecNacVer">
                         {contrato?.estudiante?.fecha_nacimiento
-                          ? new Date(contrato?.estudiante?.fecha_nacimiento)
+                          ? new Date(contrato?.estudiante?.fecha_nacimiento.replace(/-/g, '\/'))
                               .toLocaleDateString(undefined, {
                                 weekday: "long",
                                 year: "numeric",
@@ -512,7 +511,7 @@ const VerContrato = () => {
                           id="_conApoFecNacVer"
                         >
                           {apoderado!.apoderado.fecha_nacimiento
-                            ? new Date(apoderado!.apoderado.fecha_nacimiento)
+                            ? new Date(apoderado!.apoderado.fecha_nacimiento.replace(/-/g, '\/'))
                                 .toLocaleDateString(undefined, {
                                   weekday: "long",
                                   year: "numeric",

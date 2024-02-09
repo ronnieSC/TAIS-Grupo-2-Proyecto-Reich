@@ -59,3 +59,36 @@ export interface InformacionDocente {
   tipodocumentos: TipoDocumento[];
   cursos: CursoEntidad[];
 }
+
+export type CursoAsignado = {
+  codigo_bloque: number;
+  curso: string;
+  nivel: string;
+  grado: number;
+  dia: string;
+  hora_inicio: string;
+  hora_fin: string;
+}
+
+export type ListaAlumnos = {
+  codigo_bloque: number;
+  codigo_curso: number;
+  codigo_docente: number;
+  curso: string;
+  nivel: string;
+  grado: number
+  estudiantes: Estudiantes[];
+}
+
+export type Estudiantes = {
+  codigo_estudiante: number;
+  dni: string;
+  primer_nombre: string;
+  segundo_nombre: string;
+  apellido_paterno: string;
+  apellido_materno: string;
+}
+
+export type Codigos = {
+  codigo_estudiante: number;
+}
