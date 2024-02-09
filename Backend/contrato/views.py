@@ -71,7 +71,6 @@ class ReporteContratoView(APIView):
     def get(self, request, id):
         try :
             contrato = Contrato.objects.get(id=id)
-            anio = f'{contrato.ConAnoAca}'
             apellidos = f'{contrato.ConEstId.PerApePat} {contrato.ConEstId.PerApeMat}'
             nombres = f'{contrato.ConEstId.PerNom1}'
             pdf_content = generar_reporte_contrato(request, contrato)
@@ -80,7 +79,7 @@ class ReporteContratoView(APIView):
             response.write(pdf_content)
             """
             response = HttpResponse(pdf_content, content_type='application/pdf')
-            response['Content-Disposition'] = f'attachment; filename="{anio} - {apellidos}, {nombres}.pdf"'
+            response['Content-Disposition'] = f'attachment; filename="{apellidos}, {nombres}.pdf"'
             return response
             # return response
         except Contrato.DoesNotExist as e:
