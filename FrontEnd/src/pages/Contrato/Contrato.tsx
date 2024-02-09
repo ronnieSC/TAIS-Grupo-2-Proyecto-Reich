@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Table } from "react-bootstrap";
 import Menu from "../../components/VistaPrincipal/Menu";
 import Cabecera from "../../components/VistaPrincipal/Cabecera";
 import { Button } from "reactstrap";
-import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEye, FaEdit, FaTrash, FaDownload } from "react-icons/fa";
 import "./Contrato.css"; // Importa el archivo de estilos personalizados
 import PagContrato from "../../components/Contrato/Pag_Contrato";
 import { InformacionContrato } from "../../utilities/ContratoTipos";
@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import { Errors, NUMERO_REGISTROS } from "../../utilities/utils";
 import toast from "react-hot-toast";
+import contratoApi from "../../api/contrato.api";
 
 const Contrato = () => {
   const { contratos, informacion } = useLoaderData() as InformacionContrato;
@@ -55,15 +56,21 @@ const Contrato = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`Ocurrio algo en el servidor: ${error}`);
+            }
+          };
           return;
         }
         case 400: {
-          toast.error(
-            `No se pudo guardar el contrato: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`No se pudo realizar: ${error}`);
+            }
+          };
           return;
         }
       }
@@ -81,7 +88,9 @@ const Contrato = () => {
     const filtrarFila = contratos.filter((contrato) => {
       // Cambiar "contratos" a "filtrarDatos"
       const nombreCompletoEst = contrato.estudiante.primer_nombre.concat(
-        " " + contrato.estudiante.segundo_nombre,
+        contrato.estudiante.segundo_nombre
+          ? " " + contrato.estudiante.segundo_nombre
+          : "",
         " " + contrato.estudiante.apellido_paterno,
         " " + contrato.estudiante.apellido_materno
       );
@@ -102,6 +111,10 @@ const Contrato = () => {
 
   const cambiarPaginaRegistros = (paginaSeleccionada: number) => {
     setPaginaActual(paginaSeleccionada);
+  };
+
+  const descargar_contrato = async (idContrato: any) => {
+    return await contratoApi.obtener_contrato_informe(idContrato);
   };
 
   return (
@@ -254,6 +267,12 @@ const Contrato = () => {
                             >
                               <FaTrash />
                             </Button>{" "}
+                            <Button
+                              style={{ color: "white" }}
+                              onClick={() => descargar_contrato(contrato?.id)}
+                            >
+                              <FaDownload />
+                            </Button>
                           </Form.Group>
                         </td>
                       </tr>

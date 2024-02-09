@@ -42,15 +42,21 @@ const Docente = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`Ocurrio algo en el servidor: ${error}`);
+            }
+          };
           return;
         }
         case 400: {
-          toast.error(
-            `No se pudo guardar el docente: ${actionData.errors?.message}`
-          );
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`No se pudo realizar: ${error}`);
+            }
+          };
           return;
         }
       }
@@ -69,19 +75,15 @@ const Docente = () => {
 
   const filtrarDato = () => {
     const filtrarFila = docentes?.filter((docente) => {
-      const textMatch =
-        docente?.primer_nombre
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        docente?.segundo_nombre
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        docente?.apellido_paterno
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase()) ||
-        docente?.apellido_materno
-          .toLowerCase()
-          .includes(filtroNombre.toLowerCase());
+      const nombreCompletoEst = docente.primer_nombre.concat(
+        docente.segundo_nombre ? " " + docente.segundo_nombre : "",
+        " " + docente.apellido_paterno,
+        " " + docente.apellido_materno
+      );
+
+      const textMatch = nombreCompletoEst
+        .toLowerCase()
+        .includes(filtroNombre.toLowerCase());
       const DocMatch = docente?.documento.includes(filtroDoc.toLowerCase());
       return textMatch && DocMatch;
     });

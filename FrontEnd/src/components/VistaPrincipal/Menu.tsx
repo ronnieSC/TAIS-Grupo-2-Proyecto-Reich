@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 
 import ElementoLista from "./ElementoLista";
 import "../style/Menu.css";
-import backgroundImage from "../../assets/menu1.jpg"; // Ruta de la imagen de fondo
+import backgroundImage from "../../assets/menu1.jpg";
 import { useEffect, useState } from "react";
 import { Usuario } from "../../utilities/UsuarioTipos";
 import credencialesApi from "../../api/credenciales.api";
@@ -40,16 +40,22 @@ function Menu() {
             <ElementoLista link="/clase" nombre="Clases" />
             <ElementoLista link="/curso" nombre="Cursos" />
             <ElementoLista link="/configuracion" nombre="Configuración" />
+            <ElementoLista link="/horarios" nombre="Horarios" />
           </>
-        ) : usuario?.usuario.rol.nombre === "Docente" ? (
-          <ElementoLista link="/" nombre="Inicio" />
+        ) : 
+        
+        usuario?.usuario.rol.nombre === "Docente" ? (
+          <>
+            <ElementoLista link="/" nombre="Inicio" />
+            <ElementoLista link="/misCursos" nombre="Mis Cursos" />
+          </>
         ) : (
           <></>
         )}
         <Image
           fluid
-          width="190"
-          className="round float logo-image"
+          width="190rem"
+          className="rounded float logo-image"
           src={logo}
         ></Image>
       </ListGroup>

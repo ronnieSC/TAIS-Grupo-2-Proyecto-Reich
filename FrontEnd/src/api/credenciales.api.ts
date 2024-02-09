@@ -60,7 +60,13 @@ const refrescar_credenciales = async () => {
 };
 
 const obtener_datos = async () => {
-  const { data } = await cabecera!.get("/api/usuarios/perfil/");
+  const { data } = await cabecera("/api/usuarios/perfil/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 

@@ -116,7 +116,7 @@ const VerEstudiante = () => {
 
                   <Form.Label column id="_estFecNacVer">
                     {estudiante?.fecha_nacimiento
-                      ? new Date(estudiante?.fecha_nacimiento)
+                      ? new Date(estudiante?.fecha_nacimiento.replace(/-/g, '\/'))
                           .toLocaleDateString(undefined, {
                             weekday: "long",
                             year: "numeric",

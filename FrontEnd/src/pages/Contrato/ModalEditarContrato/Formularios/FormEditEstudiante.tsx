@@ -24,7 +24,7 @@ const FormEditEstudiante = ({
   const navigate = useNavigate();
   const [fecNacEst, setFecNacEst] = useState<Date>(
     contratoPartial.estudiante.fecha_nacimiento != ""
-      ? new Date(contratoPartial.estudiante.fecha_nacimiento)
+      ? new Date(contratoPartial.estudiante.fecha_nacimiento.replace(/-/g, "/"))
       : new Date()
   );
 

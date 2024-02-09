@@ -90,6 +90,10 @@ const EditarContrato = () => {
 
     const filteredEntries = Object.entries(changedValues)
       .map(([key, value]) => {
+        if (key === "documentos") {
+          return [key, value];
+        }
+
         const modifiedValue = remove_empties_duplicate(
           value,
           defaultValues[key]
@@ -98,12 +102,12 @@ const EditarContrato = () => {
           typeof modifiedValue !== "object" &&
           modifiedValue !== null &&
           modifiedValue !== undefined &&
-          modifiedValue !== ""          
+          modifiedValue !== ""
         ) {
           return [key, modifiedValue];
         } else if (
           typeof modifiedValue === "object" &&
-          modifiedValue !== null &&          
+          modifiedValue !== null &&
           Object.keys(modifiedValue).length !== 0 &&
           modifiedValue !== ""
         ) {
@@ -132,7 +136,8 @@ const EditarContrato = () => {
     delete data?.guia?.digitador;
     delete data?.pension?.digitador;
 
-    const values = remove_empties_duplicate(data, contrato);
+    const values = remove_empties_duplicate(data, contrato)
+
     submit(
       { values: JSON.stringify(values), contratoId: contrato!.id! },
       {

@@ -39,7 +39,7 @@ const FormEditPension = ({
 
   const [fecPagPen, setFecPagPen] = useState<Date>(
     contratoPartial.pension.fecha_pagos != ""
-      ? new Date(contratoPartial.pension.fecha_pagos)
+      ? new Date(contratoPartial.pension.fecha_pagos.replace(/-/g, '\/'))
       : new Date()
   );
 

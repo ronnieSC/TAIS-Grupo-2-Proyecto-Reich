@@ -57,7 +57,7 @@ const EditarPariente = () => {
   const [fecNacApo, setFecNacApo] = useState(
     new Date(
       pariente?.apoderado.fecha_nacimiento != ""
-        ? new Date(pariente?.apoderado.fecha_nacimiento!)
+        ? new Date(pariente!.apoderado.fecha_nacimiento!.replace(/-/g, "/"))
         : new Date()
     )
   );
@@ -361,7 +361,9 @@ const EditarPariente = () => {
                 value={estParProv}
                 onChange={({ target }) => {
                   setEstParProv(target.value);
-                  setValue("apoderado.ubigeo", target.value);
+                  setValue("apoderado.ubigeo", target.value, {
+                    shouldDirty: true,
+                  });
                 }}
               >
                 <option key="0000" value="0000">
@@ -382,7 +384,9 @@ const EditarPariente = () => {
                 value={estParDis}
                 onChange={({ target }) => {
                   setEstParDis(target.value);
-                  setValue("apoderado.ubigeo", target.value);
+                  setValue("apoderado.ubigeo", target.value, {
+                    shouldDirty: true,
+                  });
                 }}
               >
                 <option key="00" value="0000">

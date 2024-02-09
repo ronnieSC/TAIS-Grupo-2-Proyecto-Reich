@@ -45,7 +45,7 @@ const EditarEstudiante = () => {
 
   const [fecNacEst, setFecNacEst] = useState<Date>(
     estudiante?.fecha_nacimiento != ""
-      ? new Date(estudiante?.fecha_nacimiento)
+      ? new Date(estudiante?.fecha_nacimiento.replace(/-/g, '\/'))
       : new Date()
   );
 

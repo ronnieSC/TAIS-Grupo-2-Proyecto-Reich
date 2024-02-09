@@ -1,0 +1,26 @@
+.cells{
+    background-color: #721a1a67;
+}
+
+.botonCrear Button{
+    background-color: #622425; /* Color rojo */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.botonCrear1 Button{
+    width: 190px;
+    height: 28px;
+    background-color: rgba(98, 36, 37, 0.75);
+    border-color: rgba(98, 36, 37, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BotonCrear Button{
+    background-color: rgb(18, 152, 18);
+}

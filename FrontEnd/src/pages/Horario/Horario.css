@@ -1,0 +1,32 @@
+.horarioTitulo {
+    text-align: left;
+    padding-top: 0%;
+    padding-left: 0%;
+    font-size: 23px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.Formulario{
+    margin-top: 5vh;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.BotonNuevoHorario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+ }
+
+.BotonNuevoHorario Button { 
+    background-color: #622425; /* Color rojo */
+    color: #ffffff; /* Texto en blanco */
+    /* Otros estilos adicionales que desees */
+}
+
+.paginacion {
+    margin-top: 5vh;
+}

@@ -27,14 +27,16 @@ const FormEditApoderado = ({
     firma_contrato: boolean;
     parentescos: ParienteEntidad[];
   }>;
-}) => {  
-
+}) => {
   const [fecNacApo, setFecNacApo] = useState(
-    new Date(
-      contratoPartial.parentescos[0].apoderado.fecha_nacimiento != ""
-        ? new Date(contratoPartial.parentescos[0].apoderado.fecha_nacimiento)
-        : new Date()
-    )
+    contratoPartial.parentescos[0].apoderado.fecha_nacimiento != ""
+      ? new Date(
+          contratoPartial.parentescos[0].apoderado.fecha_nacimiento.replace(
+            /-/g,
+            "/"
+          )
+        )
+      : new Date()
   );
 
   const [docDep, setDocDep] = useState("00");

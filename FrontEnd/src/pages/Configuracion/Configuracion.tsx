@@ -93,15 +93,16 @@ const Configuracion: React.FC = () => {
     } else if (actionData !== undefined && !actionData.ok) {
       switch (actionData.status) {
         case 500: {
-          toast.error(
-            `Ocurrio algo en el servidor: ${actionData.errors?.message}`
-          );
+          toast.error(`Ocurrio algo en el servidor: ${actionData.errors}`);
           return;
         }
-        case 400: {
-          toast.error(
-            `No se pudo guardar: ${actionData.errors?.message}`
-          );
+        case 400: {          
+          for (const key in actionData.errors) {
+            if (actionData.errors.hasOwnProperty(key)){
+              const error = actionData.errors[key]
+              toast.error(`No se pudo realizar: ${error}`);
+            }
+          }
           return;
         }
       }

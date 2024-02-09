@@ -1,12 +1,18 @@
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 import contratoApi from "./contrato.api";
-import cabecera  from "./sesion.api";
+import cabecera from "./sesion.api";
 
 const crear_estudiante = async (estudiante: any) => {
-  const response = await cabecera!
-    .post("/api/estudiantes/", estudiante)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera("/api/estudiantes/")
+    .then(async (response) => {
+      return response
+        .post("/", estudiante)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
@@ -15,10 +21,16 @@ const crear_estudiante = async (estudiante: any) => {
 };
 
 const actualizar_estudiante = async (estudiante: any, id: string) => {
-  const response = await cabecera!
-    .patch(`/api/estudiantes/${id}/`, estudiante)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/estudiantes/${id}/`)
+    .then(async (response) => {
+      return response
+        .patch("/", estudiante)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;
@@ -27,30 +39,60 @@ const actualizar_estudiante = async (estudiante: any, id: string) => {
 };
 
 const obtener_tutores = async () => {
-  const { data } = await cabecera!.get("/api/docentes/");
+  const { data } = await cabecera("/api/docentes/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_secciones = async () => {
-  const { data } = await cabecera!.get("/api/estudiantes/seccion/");
+  const { data } = await cabecera("/api/estudiantes/seccion/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_estudiantes = async () => {
-  const { data } = await cabecera!.get("/api/estudiantes/");
+  const { data } = await cabecera("/api/estudiantes/")
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const obtener_estudiante = async (idEstudiante: string) => {
-  const { data } = await cabecera!.get(`/api/estudiantes/${idEstudiante}/`);
+  const { data } = await cabecera(`/api/estudiantes/${idEstudiante}/`)
+    .then((response) => {
+      return response.get("/");
+    })
+    .catch((error) => {
+      throw error;
+    });
   return data;
 };
 
 const eliminar_estudiante = async (idEstudiante: string) => {
-  const response = await cabecera!
-    .delete(`/api/estudiantes/${idEstudiante}/`)
-    .then((response) => {
-      return response as AxiosResponse;
+  const response = await cabecera(`/api/estudiantes/${idEstudiante}/`)
+    .then(async (response) => {
+      return response
+        .delete("/")
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     })
     .catch((error: AxiosError) => {
       throw error;

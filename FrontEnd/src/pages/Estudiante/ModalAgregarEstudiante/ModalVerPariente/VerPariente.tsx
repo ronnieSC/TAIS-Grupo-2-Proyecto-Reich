@@ -146,7 +146,7 @@ const VerPariente = () => {
                     id="_conApoFecNacVer"
                   >
                     {pariente?.apoderado.fecha_nacimiento
-                      ? new Date(pariente?.apoderado.fecha_nacimiento)
+                      ? new Date(pariente?.apoderado.fecha_nacimiento.replace(/-/g, '\/'))
                           .toLocaleDateString(undefined, {
                             weekday: "long",
                             year: "numeric",

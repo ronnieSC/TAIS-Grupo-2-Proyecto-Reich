@@ -54,6 +54,8 @@ interface Par {
   codigo: string;
 }
 
+export const DAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+
 const departamentos: Par[] = [
   { nombre: "Amazonas", codigo: "01" },
   { nombre: "Áncash", codigo: "02" },
