@@ -20,9 +20,14 @@ class AnoAcademicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnoAcademico
         fields = '__all__'
-        validators = [
-            UniqueValidator(queryset=AnoAcademico.objects.all())
-        ]
+
+    def validate(self, data):
+        anio = data.get('AnoAcaNum', None)
+        if not anio:
+            raise serializers.ValidationError("No ha brindado un valor para el campo 'AnoAcaNum'.")
+        if AnoAcademico.objects.filter(AnoAcaNum=anio).exists():
+            raise serializers.ValidationError("El valor dado ya existe.")
+        return data
 
 class FechaAcademicaSerializer(serializers.ModelSerializer):
     class Meta:
